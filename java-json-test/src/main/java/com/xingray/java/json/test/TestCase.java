@@ -43,6 +43,9 @@ public class TestCase {
         String json = "[{\"id\":1,\"name\":\"aa\"},{\"id\":2,\"name\":\"bb\"}]";
         List<Student> students = jsonConverter.toObject(json, new ClassNode<>(List.class, Student.class));
         assert students != null && students.size() == 2;
+        assert students.get(0).equals(new Student(1, "aa"));
+        assert students.get(1).equals(new Student(2, "bb"));
+
         System.out.println(students);
         return true;
     }
